@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kysh64rg)rwbv($qn^r^9=+kt%8vbr@oxq+(2h9bk1e-zlzm*x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://prova2-production.up.railway.app"]
 
 
 # Application definition
