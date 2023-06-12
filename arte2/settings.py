@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kysh64rg)rwbv($qn^r^9=+kt%8vbr@oxq+(2h9bk1e-zlzm*x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["prova2-production.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -125,4 +125,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://prova2-production.up.railway.app']
