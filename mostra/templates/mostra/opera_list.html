@@ -1,0 +1,23 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+<br>
+  <div class="container my-1">
+    <center><form class="d-flex" method=POST action="{% url 'search_opera' %}" role="search">
+      {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Cerca tra le opere" aria-label="Search" name="searched">
+        <button class="btn btn-outline-primary" type="submit">Cerca</button></form></center>
+
+    <br>
+    <a href="{% url 'add_opera' %}" class="btn btn-primary">Aggiungi un'opera </a>
+    <br></br>
+  
+    {%for opera in opera_list%}
+    <div class="card">
+      <div class="card-body">
+        <a href="{{ opera.get_absolute_url }}"><h3 class="card-title">{{opera.titolo}}</h3></a>
+        <p class="card-text"><i>descrizione: </i>{{ opera.descrizione|safe|truncatewords_html:40 }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock%}

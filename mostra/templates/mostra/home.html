@@ -1,0 +1,20 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+<center>
+	<br>
+	<h1>ARTE</h1>
+	
+	<h5>Esplora il nostro sito per trovare informazioni dettagliate su una vasta raccolta di Opere, Collezioni e Artisti</h5>
+	<br></br>	
+	<div class="container-fluid">
+		<a href="{% url 'opera' %}" class="btn btn-primary btn-lg">OPERE</a> &nbsp &nbsp &nbsp &nbsp
+		<a href="{% url 'collezione' %}" class="btn btn-danger btn-lg">COLLEZIONI</a> &nbsp &nbsp &nbsp &nbsp
+		<a href="{% url 'artista' %}" class="btn btn-success btn-lg">ARTISTI</a> 	
+	</div>
+	<br></br>
+	<div class="container-fluid">
+		<a href="{% url 'contattaci' %}" class="btn btn-secondary">Contattaci</a> &nbsp &nbsp &nbsp &nbsp
+		<a href="{% url 'login' %}" class="btn btn-secondary">Login/Signin</a> 
+
+</center>
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+<br>
+  <div class="container my-1">
+    <center><form class="d-flex" method=POST action="{% url 'search_artista' %}" role="search">
+      {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Cerca tra gli artisti" aria-label="Search" name="searched">
+        <button class="btn btn-outline-success" type="submit">Cerca</button></form></center>
+    <br>
+    <a href="{% url 'add_artista' %}" class="btn btn-success">Sei un artista? Aggiungi qui il tuo profilo </a>
+    <br></br>
+    {%for artista in artista_list%}
+    <div class="card">
+      <div class="card-body">
+        
+        <a href="{{artista.get_absolute_url}}" class="text-success"><h3 class="card-title">{{artista.nome}}</h3></a>
+        <p class="card-text"><i>biografia: </i>{{ artista.biografia|safe|truncatewords_html:40 }}</p>
+
+
+        
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock%}

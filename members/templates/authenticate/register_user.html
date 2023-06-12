@@ -1,0 +1,39 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            C'è stato qualche errore durante la tua compilazione, per favore riprova.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+
+
+{% endif %}
+
+
+
+<div class="container-sm">
+	<br/><br/>
+	<center><h1>Registrazione</h1></center>
+	<br></br>
+
+
+		<form action="{% url 'register' %}" method=POST>
+			{% csrf_token %}
+			{{ form.as_p }}
+
+
+<br/><br/>
+
+			<input type="submit" value="Invia" class="btn btn-secondary">
+
+		</form>
+		
+
+<br/><br/>
+
+</div>
+
+
+{% endblock%}

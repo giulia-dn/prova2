@@ -1,0 +1,28 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+	<br/><br/>
+<div class="container my-1">
+{% if user.is_authenticated %}
+
+    
+    {% if user.username == collezione.proprietario or request.user.is_superuser %}
+        <center><h1>Vuoi davvero eliminare {{collezione}}</h1>
+	    <br>
+        <a href="{% url 'delete_collezione' collezione.id %}" class="btn btn-success">Si</a>&nbsp &nbsp &nbsp &nbsp<a href="{% url 'collezione' %}" class="btn btn-danger">No </a> 
+        </center>
+        </div>
+    {% else %}
+        <center><h1>Mi dispiace! Solo il proprietario della collezione può eliminare quest'ultima</h1></center>
+    	<h3>Vuoi segnalarci qualche errore o qualche informazione mancante, aiuteresti a migliorare il nostro sito</h3>
+        <br/><br/>
+	    <a href="{% url 'contattaci' %}" class="btn btn-warning">Contattaci qui</a>&nbsp &nbsp &nbsp &nbsp<a href="{% url 'collezione' %}" class="btn btn-danger">Torna a tutte le Collezioni </a> 
+	{% endif %}
+
+{% else %}
+	<center><h1>Mi dispiace! Devi prima effettuare il login</h1>
+<br/><br/>
+	<a href="{% url 'login' %}" class="btn btn-warning">Vai al login</a>&nbsp &nbsp &nbsp &nbsp<a href="{% url 'collezione' %}" class="btn btn-danger">Torna a tutte le Collezioni </a> </center>
+{% endif %}
+</div>
+
+{% endblock%}

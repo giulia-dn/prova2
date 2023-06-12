@@ -1,0 +1,27 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+<center>
+	<br/><br/>
+	<h1>Contattaci</h1>
+	
+	{% if submitted %}
+	<h3>Grazie, il tuo messaggio è stato inviato con successo!!</h3>
+
+	{% else %}
+	<h4>Hai trovato qualche errore o inesattezza riguardante un artista, un'opera o una collezione? <br>Aiutaci a migliorare, riempi il form e inviaci gli errori riscontrati.</h4>
+	<br/><br/>
+
+
+	<form action="" method=POST>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Invia" class="btn btn-secondary">	
+		<br/><br/>
+	</form>
+	{% endif %}
+		
+</center>
+
+
+
+{% endblock%}

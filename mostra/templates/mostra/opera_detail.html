@@ -1,0 +1,16 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+  <div class="container my-1">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{opera.titolo}}</h3>
+        <p class="card-text"><i>descrizione: </i>{{ opera.descrizione }}</p>
+        <p class="card-text"><i>realizzato da: </i>{{ opera.artista }}<br><a href="{{opera.artista.get_absolute_url}}" class="btn btn-success">clicca qui per sapere di più su quasto ARTISTA </a></p>
+
+
+        <a href="{% url 'update_opera' opera.id %}" class="btn btn-outline-secondary">Modifica </a> 
+        <a href="{% url 'delete_opera' opera.id %}" class="btn btn-outline-secondary">Elimina </a> 
+
+        <a href="{% url 'opera' %}" class="btn btn-primary">Vai a tutte le Opere </a> 
+  </div>
+{% endblock%}

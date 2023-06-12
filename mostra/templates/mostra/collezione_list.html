@@ -1,0 +1,27 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+<br>
+  <div class="container my-1">
+    <center><form class="d-flex" method=POST action="{% url 'search_collezione' %}" role="search">
+      {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Cerca tra le collezioni" aria-label="Search" name="searched">
+        <button class="btn btn-outline-danger" type="submit">Cerca</button></form></center>
+    <br>
+    <a href="{% url 'add_collezione' %}" class="btn btn-danger">Sei un collezionista? Aggiungi qui la tua collezione</a>
+    <br></br>
+    {%for collezione in collezione_list%}
+    <div class="card">
+      <div class="card-body">
+        <a href="{{collezione.get_absolute_url}}" class="text-danger"><h3 class="card-title">{{ collezione.nominativo}}</h3></a>
+        <p class="card-text"><i>info: </i>{{ collezione.info|safe|truncatewords_html:40 }}</p>
+        
+        
+        
+       <!-- <a href="#" class="btn btn-secondary">clicca qui per scoprire tutte le OPERE che puoi trovare in questa collezione</a>-->
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock%}
+
+

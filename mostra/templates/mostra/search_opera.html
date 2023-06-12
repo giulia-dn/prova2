@@ -1,0 +1,30 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+
+<div class="container-sm">
+	<br/><br/>
+	{% if searched %}
+	<center><h1>Hai cercato {{searched}}</h1></center>
+		<br>
+		<h3>Ecco i riusultati della tua ricerca:</h3>
+		{% for opera in opera %}
+		
+			<div class="card-body">
+				<a href="{{ opera.get_absolute_url }}"><h3 class="card-title">{{opera.titolo}}</h3></a>
+			</div>
+		
+
+		{% endfor %}
+
+	{% else %}
+	<center><h1>Per favore inserisci un opera da cercare</h1></center>
+
+
+
+	{% endif %}
+	<br></br><center><a href="{% url 'opera' %}" class="btn btn-primary">Torna a tutte le opere </a> </center>
+
+
+
+</div>
+{% endblock%}

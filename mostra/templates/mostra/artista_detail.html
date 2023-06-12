@@ -1,0 +1,19 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+  <div class="container my-1">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{artista.nome}}</h3>
+        <p class="card-text"><i>biografia: </i>{{ artista.biografia }}</p>
+
+        <a href="{% url 'update_artista' artista.id %}" class="btn btn-outline-secondary">Modifica </a> 
+        <a href="{% url 'deletesure_artista' artista.id %}" class="btn btn-outline-secondary">Elimina</a> 
+
+
+        <a href="{% url 'artista' %}" class="btn btn-success">Vai a tutti gli Artisti </a> 
+
+        
+       
+       
+  </div>
+{% endblock%}

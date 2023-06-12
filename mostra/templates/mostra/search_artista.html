@@ -1,0 +1,30 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+
+<div class="container-sm">
+	<br/><br/>
+	{% if searched %}
+	<center><h1>Hai cercato {{searched}}</h1></center>
+		<br>
+		<h3>Ecco i riusultati della tua ricerca:</h3>
+		{% for artista in artista %}
+		
+			<div class="card-body">
+				<a href="{{artista.get_absolute_url}}" class="text-success"><h3 class="card-title">{{artista.nome}}</h3></a>
+			</div>
+		
+
+		{% endfor %}
+
+	{% else %}
+	<center><h1>Per favore inserisci un artista da cercare</h1></center>
+
+
+
+	{% endif %}
+	<br></br><center><a href="{% url 'artista' %}" class="btn btn-success">Torna a tutti gli Artisti </a> </center>
+
+
+
+</div>
+{% endblock%}

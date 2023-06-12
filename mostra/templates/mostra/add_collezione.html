@@ -1,0 +1,35 @@
+
+{% extends 'mostra/common.html'%}
+{% block content %}
+<div class="container my-1">
+	<br/><br/>
+{% if user.is_authenticated %}
+	
+	{% if submitted %}
+	<center><h1>Hai aggiunto la collezione con successo!</h1>
+	<br/><br/>
+	<a href="{% url 'collezione' %}" class="btn btn-danger">Torna a tutte le collezioni </a> 
+    </center>
+	{% else %}
+
+	<div class="container my-1">
+	<center><h1>Aggiungi una nuova collezione</h1></center>
+    <br>
+    <div class="container my-1">
+	<form action="" method=POST>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Invia" class="btn btn-secondary">	
+		<br/><br/>
+	</form>
+	</div>
+	{% endif %}
+    </div>
+{% else %}
+	<center><h1>Mi dispiace! Devi prima effettuare il login</h1>
+<br/><br/>
+	<a href="{% url 'login' %}" class="btn btn-warning">Vai al login</a>&nbsp &nbsp &nbsp &nbsp<a href="{% url 'collezione' %}" class="btn btn-success">Torna a tutte le Collezioni </a> </center>
+{% endif %}
+</div>
+{% endblock%}
+

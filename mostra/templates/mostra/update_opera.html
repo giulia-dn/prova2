@@ -1,0 +1,25 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+	<br/><br/>
+<div class="container my-1">
+{% if user.is_authenticated %}
+
+        <center><h1>Modifica la opera {{opera}}</h1></center>
+	    <br>
+        <div class="container my-1">
+	    <form action="" method=POST>
+	    	{% csrf_token %}
+	    	{{ form.as_p }}
+	    	<input type="submit" value="Invia" class="btn btn-secondary">	
+	    	<br/><br/>
+	    </form>
+        </div>
+
+{% else %}
+	<center><h1>Mi dispiace! Devi prima effettuare il login</h1>
+<br/><br/>
+	<a href="{% url 'login' %}" class="btn btn-warning">Vai al login</a>&nbsp &nbsp &nbsp &nbsp<a href="{% url 'opera' %}" class="btn btn-primary">Torna a tutte le Opere </a> </center>
+{% endif %}
+</div>
+
+{% endblock%}

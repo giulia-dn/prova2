@@ -1,0 +1,1 @@
+web: gunicorn arte2.wsgi --log-file -

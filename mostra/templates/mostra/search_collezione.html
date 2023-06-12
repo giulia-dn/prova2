@@ -1,0 +1,30 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+
+<div class="container-sm">
+	<br/><br/>
+	{% if searched %}
+	<center><h1>Hai cercato {{searched}}</h1></center>
+		<br>
+		<h3>Ecco i riusultati della tua ricerca:</h3>
+		{% for collezione in collezione %}
+		
+			<div class="card-body">
+				<a href="{{collezione.get_absolute_url}}" class="text-danger"><h3 class="card-title">{{collezione.nominativo}}</h3></a>
+			</div>
+		
+
+		{% endfor %}
+
+	{% else %}
+	<center><h1>Per favore inserisci una collezione da cercare</h1></center>
+
+
+
+	{% endif %}
+	<br></br><center><a href="{% url 'collezione' %}" class="btn btn-danger">Torna a tutti gli Artisti </a> </center>
+
+
+
+</div>
+{% endblock%}

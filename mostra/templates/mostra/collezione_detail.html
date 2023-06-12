@@ -1,0 +1,20 @@
+{% extends 'mostra/common.html'%}
+{% block content %}
+  <div class="container my-1">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{collezione.nominativo}}</h3>
+        <p class="card-text"><i>info: </i>{{ collezione.info }}</p>
+
+
+        <p class="card-text">Lista delle opere in questa collezione: {{collezione.opera.all}}</p>
+        
+        <a href="{% url 'update_collezione' collezione.id %}" class="btn btn-outline-secondary">Modifica </a> 
+        <a href="{% url 'deletesure_collezione' collezione.id %}" class="btn btn-outline-secondary">Elimina </a> 
+
+        <a href="{% url 'collezione' %}" class="btn btn-danger">Vai a tutte le Collezioni </a> 
+
+       
+       
+  </div>
+{% endblock%}
